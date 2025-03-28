@@ -15,7 +15,7 @@ const Memo = () => {
     //text가 있다면 memo키에 text(value) 지정
     useEffect(()=>{
         localStorage.setItem("memo", text);
-    }, []);
+    }, [text]);
 
 
     return (
