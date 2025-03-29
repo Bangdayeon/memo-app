@@ -1,0 +1,2 @@
+static asset 관리
+base URL(/)로 접근 가능

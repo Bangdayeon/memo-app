@@ -1,9 +1,9 @@
 "use client";
 
 import {useState, useEffect} from "react";
-import styles from "../styles/Memo.module.css";
+import styles from "@/styles/writing.module.css";
 
-const Memo = () => {
+export default function WritingPage() {
     const [text, setText] = useState("");
 
     //localStorage로부터 memo키에 해당 하는 item을 get, value가 존재한다면 해당 값으로 text 지정
@@ -29,5 +29,3 @@ const Memo = () => {
         </div>
     );
 };
-
-export default Memo;
