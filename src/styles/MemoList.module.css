@@ -1,0 +1,13 @@
+.memo_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    padding:1rem;
+    gap:1rem;
+}
+
+.memo_card{
+    color:black;
+    background-color: rgb(255, 243, 166);
+    width: 10rem; height: 10rem;
+    padding: 0.2rem;
+}
