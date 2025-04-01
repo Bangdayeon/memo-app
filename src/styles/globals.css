@@ -1,3 +1,5 @@
+/* 웹폰트 선언파일, 주사용 컬러값, css리셋, 각종 상수 */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
