@@ -1,0 +1,44 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: rgb(255, 248, 198);
+  padding: 20px;
+  border-radius: 1rem;
+  width: 30rem;
+  height: 20rem;
+}
+
+.memoTextarea {
+  cursor: pointer;
+  width: 100%;
+  height: 90%;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 0.8rem;
+  color: black;
+  background-color: rgb(255, 248, 198);
+}
+
+.buttonContainer {
+  gap: 1rem;
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: blueviolet;
+}
