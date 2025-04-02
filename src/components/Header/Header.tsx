@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/Header.module.css";
+import styles from "./Header.module.css";
 
 const Header = ({ openModal }: { openModal: () => void }) => {
   return (

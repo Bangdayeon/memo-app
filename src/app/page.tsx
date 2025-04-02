@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import Header from "@/components/Header";
-import MemoModal from "@/components/MemoModal";
+import Header from "@/components/Header/Header";
+import MemoModal from "@/components/MemoModal/MemoModal";
 import MemoList from "./(route)/main/_components/MemoList";
 
 const HomePage = () => {

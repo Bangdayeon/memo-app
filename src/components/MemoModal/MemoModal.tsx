@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "@/styles/MemoModal.module.css";
+import styles from "./MemoModal.module.css";
 
 interface ModalProps {
   isOpen: boolean;
