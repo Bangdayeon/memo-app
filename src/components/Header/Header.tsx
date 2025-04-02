@@ -2,7 +2,13 @@
 
 import styles from "./Header.module.css";
 
-const Header = ({ openModal }: { openModal: () => void }) => {
+interface HeaderProps {
+  openModal: () => void;
+  toggleView: () => void;
+  isListView: boolean;
+}
+
+const Header = ({ openModal, toggleView, isListView }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <nav>
@@ -10,7 +16,12 @@ const Header = ({ openModal }: { openModal: () => void }) => {
           ✏️
         </button>
       </nav>
-      <button className={styles.button}>⚙️</button>
+      <nav>
+        <button onClick={toggleView} className={styles.button}>
+          {isListView ? "🟰" : "🟨"}
+        </button>
+        <button className={styles.button}>⚙️</button>
+      </nav>
     </header>
   );
 };

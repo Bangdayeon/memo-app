@@ -12,9 +12,10 @@ const NOTHING_MSG = "텅~";
 interface MemoListProps {
   isModalOpen: boolean;
   closeModal: () => void;
+  isListView: boolean;
 }
 
-const MemoList = ({ isModalOpen, closeModal }: MemoListProps) => {
+const MemoList = ({ isModalOpen, closeModal, isListView }: MemoListProps) => {
   const [memoList, setMemoList] = useState<string[]>([]);
 
   //localStorage에서 저장된 메모 목록 불러오기
@@ -37,10 +38,17 @@ const MemoList = ({ isModalOpen, closeModal }: MemoListProps) => {
   };
 
   return (
-    <div className={styles.memo_list}>
+    <div
+      className={
+        isListView ? styles.memoCardContainer : styles.memoListContainer
+      }
+    >
       {memoList.length > 0 ? (
         memoList.map((memo, index) => (
-          <div className={styles.memo_card} key={index}>
+          <div
+            className={isListView ? styles.memoCard : styles.memoList}
+            key={index}
+          >
             <p>{memo}</p>
           </div>
         ))
