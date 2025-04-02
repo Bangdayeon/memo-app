@@ -14,11 +14,6 @@ const MemoModal = ({ isOpen, onClose, onSave }: ModalProps) => {
 
   const handleSave = () => {
     if (text.trim()) {
-      const savedMemoList = JSON.parse(
-        localStorage.getItem("memoList") || "[]"
-      );
-      const newMemoList = [...savedMemoList, text];
-      localStorage.setItem("memoList", JSON.stringify(newMemoList));
       onSave(text);
       setText("");
       onClose();

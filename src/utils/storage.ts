@@ -4,7 +4,7 @@ export const setItem = <T>(key: string, value: T): void => {
     const serializedValue = JSON.stringify(value); //객체->JSON 문자열
     localStorage.setItem(key, serializedValue);
   } catch (error) {
-    console.error("localStorage에 데이터 저장 중 오류 발생", error);
+    console.error("localStorage setItem error", error);
   }
 };
 
@@ -17,7 +17,7 @@ export const getItem = <T>(key: string): T | null => {
     }
     return JSON.parse(serializedValue); // JSON 문자열 -> 객체
   } catch (error) {
-    console.error("localStorage에서 데이터 가져오는 중 오류 발생", error);
+    console.error("localStorage getItem error", error);
     return null;
   }
 };
@@ -27,7 +27,7 @@ export const removeItem = (key: string): void => {
   try {
     localStorage.removeItem(key);
   } catch (error) {
-    console.error("localStorage에서 데이터 삭제 중 오류 발생", error);
+    console.error("localStorage removeItem error", error);
   }
 };
 
@@ -36,6 +36,12 @@ export const clear = (): void => {
   try {
     localStorage.clear();
   } catch (error) {
-    console.error("localStorage 초기화 중 오류 발생", error);
+    console.error("localStorage clear error", error);
   }
+};
+
+// 배열 데이터를 안전하게 가져오는 함수
+export const getItemArr = <T>(key: string): T[] => {
+  const data = getItem<T[]>(key);
+  return data ?? []; // null이면 빈 배열 반환
 };
