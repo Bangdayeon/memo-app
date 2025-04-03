@@ -1,30 +1,32 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:1rem;
-    background-color: rgb(211, 232, 238);
-    color: rgb(48, 48, 48);
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(211, 232, 238);
+  color: rgb(48, 48, 48);
 }
-
-.header h1{
-    font-size: 1.5rem;
-    margin:0;
+.div {
+  justify-content: center;
 }
-
-.nav {
-    justify-content: center;
+.l_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.button{
-    font-size: 1.2rem;
-    width: 2.5rem; height: 2.5rem;
-    margin-inline: 0.5rem;
-    cursor:pointer;
-    border: none;
-    border-radius: 1rem;
-    background-color: rgb(82, 140, 227);
+.menu_icon,
+.logo_icon,
+.button {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-inline: 0.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  background-color: rgb(82, 140, 227);
 }
+.menu_icon:hover,
+.logo_icon:hover,
 .button:hover {
-    background-color: rgb(41, 78, 145);
+  background-color: rgb(41, 78, 145);
 }
