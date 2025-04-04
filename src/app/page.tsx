@@ -3,12 +3,12 @@ import { useState } from "react";
 import Header from "@/components/Header/Header";
 import ShowMemos from "./(route)/ShowMemos/ShowMemos";
 const HomePage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInputModalOpen, setIsInputModalOpen] = useState(false);
   const [isListView, setIsListView] = useState(false);
 
   // Open||Close Modal
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openInputModal = () => setIsInputModalOpen(true);
+  const closeModal = () => setIsInputModalOpen(false);
 
   const toggleView = () => {
     setIsListView((prev) => !prev);
@@ -17,12 +17,12 @@ const HomePage = () => {
   return (
     <div>
       <Header
-        openModal={openModal}
+        openInputModal={openInputModal}
         toggleView={toggleView}
         isListView={isListView}
       />
       <ShowMemos
-        isModalOpen={isModalOpen}
+        isInputModalOpen={isInputModalOpen}
         closeModal={closeModal}
         isListView={isListView}
       />

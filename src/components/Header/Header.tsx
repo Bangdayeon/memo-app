@@ -1,17 +1,22 @@
 "use client";
 
+import { useState } from "react";
+import { Modal } from "../Modal/Modal";
+
 import styles from "./Header.module.css";
 import Link from "next/link";
 
 interface HeaderProps {
-  openModal: () => void;
+  openInputModal: () => void;
   toggleView: () => void;
   isListView: boolean;
 }
 
-const Header = ({ openModal, toggleView, isListView }: HeaderProps) => {
+const Header = ({ openInputModal, toggleView, isListView }: HeaderProps) => {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
   return (
-    <header className={styles.header}>
+    <div className={styles.header}>
       <div className={styles.l_container}>
         <div className={styles.menu_container}>
           <button className={styles.menu_icon}>🗂️</button>
@@ -23,15 +28,27 @@ const Header = ({ openModal, toggleView, isListView }: HeaderProps) => {
         </div>
       </div>
       <div className={styles.r_container}>
-        <button onClick={openModal} className={styles.button}>
+        <button onClick={openInputModal} className={styles.button}>
           ✏️
         </button>
         <button onClick={toggleView} className={styles.button}>
           {isListView ? "🟰" : "🟨"}
         </button>
-        <button className={styles.button}>⚙️</button>
+        <button
+          className={styles.button}
+          onClick={() => setIsSettingsOpen(true)}
+        >
+          ⚙️
+        </button>
       </div>
-    </header>
+
+      {/* 설정 모달 */}
+      <Modal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        content={<h2>설정</h2>}
+      />
+    </div>
   );
 };
 

@@ -10,12 +10,16 @@ import styles from "./ShowMemos.module.css";
 const NOTHING_MSG = "텅~";
 
 interface ShowMemosProps {
-  isModalOpen: boolean;
+  isInputModalOpen: boolean;
   closeModal: () => void;
   isListView: boolean;
 }
 
-const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
+const ShowMemos = ({
+  isInputModalOpen,
+  closeModal,
+  isListView,
+}: ShowMemosProps) => {
   const { memoList, addMemo, deleteMemo, editMemo } = ManageMemo();
   const [selectedMemo, setSelectedMemo] = useState<{
     index: number;
@@ -54,7 +58,7 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
         />
       )}
       <MemoModal
-        isOpen={isModalOpen}
+        isOpen={isInputModalOpen}
         onClose={closeModal}
         onSave={(memo) => {
           addMemo(memo);
