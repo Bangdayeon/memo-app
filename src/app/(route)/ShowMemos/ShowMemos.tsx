@@ -54,6 +54,7 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
         />
       )}
       <MemoModal
+        initialText=""
         isOpen={isModalOpen}
         onClose={closeModal}
         onSave={(memo) => {

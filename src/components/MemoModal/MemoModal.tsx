@@ -16,11 +16,13 @@ const MemoModal = ({
   onSave,
   initialText = "",
 }: ModalProps) => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(initialText);
 
   useEffect(() => {
-    setText(initialText);
-  }, [initialText]);
+    if (isOpen) {
+      setText(initialText);
+    }
+  }, [isOpen, initialText]);
 
   return isOpen ? (
     <div className={styles.modalOverlay}>
