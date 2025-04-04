@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Header from "@/components/Header/Header";
-import MemoList from "./(route)/main/_components/MemoList";
-
+import ShowMemos from "./(route)/ShowMemos/ShowMemos";
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isListView, setIsListView] = useState(false);
@@ -22,7 +21,7 @@ const HomePage = () => {
         toggleView={toggleView}
         isListView={isListView}
       />
-      <MemoList
+      <ShowMemos
         isModalOpen={isModalOpen}
         closeModal={closeModal}
         isListView={isListView}

@@ -1,24 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./MemoModal.module.css";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSave: (memo: string) => void;
+  initialText?: string;
 }
 
-const MemoModal = ({ isOpen, onClose, onSave }: ModalProps) => {
+const MemoModal = ({
+  isOpen,
+  onClose,
+  onSave,
+  initialText = "",
+}: ModalProps) => {
   const [text, setText] = useState("");
 
-  const handleSave = () => {
-    if (text.trim()) {
-      onSave(text);
-      setText("");
-      onClose();
-    }
-  };
+  useEffect(() => {
+    setText(initialText);
+  }, [initialText]);
 
   return isOpen ? (
     <div className={styles.modalOverlay}>
@@ -30,7 +32,7 @@ const MemoModal = ({ isOpen, onClose, onSave }: ModalProps) => {
           className={styles.memoTextarea}
         />
         <nav className={styles.buttonContainer}>
-          <button onClick={handleSave} className={styles.button}>
+          <button onClick={() => onSave(text)} className={styles.button}>
             저장
           </button>
           <button onClick={onClose} className={styles.button}>

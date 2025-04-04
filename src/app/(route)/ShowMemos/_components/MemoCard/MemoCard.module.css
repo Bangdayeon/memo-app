@@ -1,0 +1,50 @@
+.listView {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 0.3rem 1rem 0.5rem;
+  margin: 0.1rem;
+  color: white;
+  background-color: rgb(72, 72, 72);
+  border-radius: 0.2rem;
+  transition: opacity 0.3s ease-in-out;
+}
+.listView:hover,
+.cardView:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+.listView:hover .buttonContainer,
+.cardView:hover .buttonContainer {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cardView {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: black;
+  background-color: rgb(255, 243, 166);
+  width: 10rem;
+  height: 10rem;
+  padding: 0.2rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.context {
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button {
+  cursor: pointer;
+  margin-inline: 0.1rem;
+}
