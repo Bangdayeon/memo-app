@@ -4,19 +4,19 @@ interface MemoCardProps {
   contents: string;
   isListView: boolean;
   onDelete: () => void;
-  onClick: () => void;
+  openModal: () => void;
 }
 
 const MemoCard = ({
   contents,
   isListView,
   onDelete,
-  onClick,
+  openModal,
 }: MemoCardProps) => {
   return (
     <div
       className={isListView ? styles.listView : styles.cardView}
-      onClick={onClick}
+      onClick={openModal}
     >
       <p className={styles.contents}>{contents}</p>
       <div className={styles.buttonContainer}>

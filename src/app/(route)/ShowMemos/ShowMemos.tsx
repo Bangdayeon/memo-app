@@ -35,7 +35,7 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
               contents={memo}
               isListView={isListView}
               onDelete={() => deleteMemo(index)}
-              onClick={() => setSelectedMemo({ index, content: memo })}
+              openModal={() => setSelectedMemo({ index, content: memo })}
             />
           </div>
         ))
@@ -54,7 +54,6 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
         />
       )}
       <MemoModal
-        initialText=""
         isOpen={isModalOpen}
         onClose={closeModal}
         onSave={(memo) => {
