@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./MemoModal.module.css";
+import styles from "./InputModal.module.css";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,7 +10,7 @@ interface ModalProps {
   initialText?: string;
 }
 
-const MemoModal = ({
+const InputModal = ({
   isOpen,
   onClose,
   onSave,
@@ -46,4 +46,4 @@ const MemoModal = ({
   ) : null;
 };
 
-export default MemoModal;
+export default InputModal;

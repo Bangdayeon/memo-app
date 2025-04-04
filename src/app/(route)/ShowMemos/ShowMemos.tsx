@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import MemoModal from "@/components/MemoModal/MemoModal";
+import InputModal from "@/components/InputModal/InputModal";
 import MemoCard from "./_components/MemoCard/MemoCard";
 import { ManageMemo } from "@/utils/ManageMemo";
 
@@ -47,20 +47,20 @@ const ShowMemos = ({
         <p>{NOTHING_MSG}</p>
       )}
       {selectedMemo && (
-        <MemoModal
+        <InputModal
           isOpen={true}
           onClose={() => setSelectedMemo(null)}
-          onSave={(updatedMemo) => {
+          onSave={(updatedMemo: string) => {
             editMemo(selectedMemo.index, updatedMemo);
             setSelectedMemo(null);
           }}
           initialText={selectedMemo.content || ""}
         />
       )}
-      <MemoModal
+      <InputModal
         isOpen={isInputModalOpen}
         onClose={closeModal}
-        onSave={(memo) => {
+        onSave={(memo: string) => {
           addMemo(memo);
           closeModal();
         }}
