@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import InputModal from "@/components/InputModal/InputModal";
-import MemoCard from "./_components/MemoCard/MemoCard";
-import { ManageMemo } from "@/utils/ManageMemo";
+import MemoCard from "./components/MemoCard";
+import { ManageMemo } from "@/shared/utils/ManageMemo";
 
 import styles from "./ShowMemos.module.css";
 
