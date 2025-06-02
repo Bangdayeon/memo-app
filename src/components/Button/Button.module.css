@@ -1,0 +1,9 @@
+.counterButton {
+    cursor: pointer;
+    padding-inline: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size:2rem;
+    color:white;
+    background-color: rgb(143, 143, 143);
+}
