@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./CounterModal.module.css";
 
 interface CounterModalProps {
@@ -7,16 +7,25 @@ interface CounterModalProps {
 }
 
 const CounterModal = ({ onClose }: CounterModalProps) => {
+    const [count, setCount] = useState(0);
+
+    const sub = () => {
+        setCount(count -1 );
+    };
+    const add = () => {
+        setCount(count + 1);
+    };
+
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modalContent}>
                 <h2>Counter App</h2>
                 <div className={styles.counterContainer}>
-                    <button className={styles.counterButton} disabled>
+                    <button className={styles.counterButton} onClick={sub}>
                         -
                     </button>
-                    <span className={styles.counterValue}>0</span>
-                    <button className={styles.counterButton} disabled>
+                    <span className={styles.counterValue}>{count}</span>
+                    <button className={styles.counterButton} onClick={add}>
                         +
                     </button>
                 </div>
