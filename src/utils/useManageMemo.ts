@@ -23,7 +23,7 @@ const setItem = <T>(key: string, value: T): void => {
   }
 };
 
-export const ManageMemo = () => {
+export const useManageMemo = () => {
   const [memoList, setMemoList] = useState<string[]>([]);
 
   //메모 불러오기

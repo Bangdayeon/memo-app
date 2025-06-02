@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 
 interface HeaderProps {
-  openModal: () => void;
+  openModal: (type:"counter"|"memo") => void;
   toggleView: () => void;
   isListView: boolean;
 }
@@ -21,13 +21,18 @@ const Header = ({ openModal, toggleView, isListView }: HeaderProps) => {
             🙂
           </Link>
         </div>
+        <div className={styles.logo_container}>
+          <button onClick={()=>openModal("counter")} className={styles.button}>
+            🔢
+          </button>
+        </div>
       </div>
       <div className={styles.r_container}>
-        <button onClick={openModal} className={styles.button}>
+        <button onClick={()=>openModal("memo")} className={styles.button}>
           ✏️
         </button>
         <button onClick={toggleView} className={styles.button}>
-          {isListView ? "🟰" : "🟨"}
+          {isListView ? "〰" : "🟨"}
         </button>
         <button className={styles.button}>⚙️</button>
       </div>

@@ -1,17 +1,14 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import styles from "./MemoModal.module.css";
 
 interface ModalProps {
-  isOpen: boolean;
   onClose: () => void;
   onSave: (memo: string) => void;
   initialText?: string;
 }
 
 const MemoModal = ({
-  isOpen,
   onClose,
   onSave,
   initialText = "",
@@ -19,12 +16,10 @@ const MemoModal = ({
   const [text, setText] = useState(initialText);
 
   useEffect(() => {
-    if (isOpen) {
       setText(initialText);
-    }
-  }, [isOpen, initialText]);
+  }, [initialText]);
 
-  return isOpen ? (
+  return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
         <textarea
@@ -43,7 +38,7 @@ const MemoModal = ({
         </nav>
       </div>
     </div>
-  ) : null;
+  )
 };
 
 export default MemoModal;

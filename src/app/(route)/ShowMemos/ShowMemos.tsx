@@ -3,20 +3,21 @@
 import { useState } from "react";
 import MemoModal from "@/components/MemoModal/MemoModal";
 import MemoCard from "./_components/MemoCard/MemoCard";
-import { ManageMemo } from "@/utils/ManageMemo";
 
 import styles from "./ShowMemos.module.css";
 
 const NOTHING_MSG = "텅~";
 
 interface ShowMemosProps {
-  isModalOpen: boolean;
+  memoList: string[];
+  addMemo: (memo: string) => void;
+  deleteMemo: (index: number) => void;
+  editMemo: (index: number, content: string) => void;
   closeModal: () => void;
   isListView: boolean;
 }
 
-const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
-  const { memoList, addMemo, deleteMemo, editMemo } = ManageMemo();
+const ShowMemos = ({ memoList, addMemo, deleteMemo, editMemo, closeModal, isListView }: ShowMemosProps) => {
   const [selectedMemo, setSelectedMemo] = useState<{
     index: number;
     content: string;
@@ -44,7 +45,6 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
       )}
       {selectedMemo && (
         <MemoModal
-          isOpen={true}
           onClose={() => setSelectedMemo(null)}
           onSave={(updatedMemo) => {
             editMemo(selectedMemo.index, updatedMemo);
@@ -53,14 +53,6 @@ const ShowMemos = ({ isModalOpen, closeModal, isListView }: ShowMemosProps) => {
           initialText={selectedMemo.content || ""}
         />
       )}
-      <MemoModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSave={(memo) => {
-          addMemo(memo);
-          closeModal();
-        }}
-      />
     </div>
   );
 };
